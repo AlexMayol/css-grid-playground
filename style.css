@@ -1,0 +1,90 @@
+html {
+  height: 100vh;
+  width: 100%;
+  background-color: black;
+}
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  overflow:hidden;
+}
+main {
+  width: 100%;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: repeat(3, 33.33%);
+  grid-template-columns: 25vw 25vw 25vw 25vw;
+  grid-template-areas:
+    "a a a b"
+    "a a a c"
+    "d e f f";
+}
+@media (max-width: 20rem) {
+  main {
+    grid-template-rows: repeat(4, 25%);
+    grid-template-areas:
+      "b b b b"
+      "c c a a"
+      "d f e e"
+      "d f e e";
+  }
+}
+
+@media (min-width: 20.1rem) and (max-width: 40rem) {
+  main {
+    grid-template-rows: repeat(4, 25%);
+    grid-template-areas:
+      "e e c c"
+      "a a a a"
+      "d f b b"
+      "d f b b";
+  }
+}
+
+@media (min-width: 40.1rem) and (max-width: 60rem) {
+  main {
+    grid-template-rows: repeat(3, 33.33%);
+    grid-template-areas:
+      "e e b b"
+      "f a a c"
+      "d a a c";
+  }
+}
+
+@media (min-width: 60.1rem) and (max-width: 70rem) {
+  main {
+    grid-template-rows: repeat(4, 25%);
+    grid-template-areas:
+      "c a a b"
+      "c e e b"
+      "f e e d"
+      "f e e d";
+  }
+}
+section {
+  background-color: red;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+section:nth-child(1) {
+  grid-area: a;
+}
+section:nth-child(2) {
+  grid-area: b;
+}
+section:nth-child(3) {
+  grid-area: c;
+}
+section:nth-child(4) {
+  grid-area: d;
+}
+section:nth-child(5) {
+  grid-area: e;
+}
+section:nth-child(6) {
+  grid-area: f;
+}
