@@ -38,7 +38,6 @@ if (document.getElementById("gallery")) {
       },
         imgLoad(el) {
         el.showImg = true;
-        console.log('load')
       },
       random(min, max) {
         return Math.floor(Math.random() * (max - min + 1) + min);
