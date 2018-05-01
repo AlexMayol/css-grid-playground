@@ -1,0 +1,141 @@
+html {
+  height: 100vh;
+  width: 100%;
+  background-color: white;
+}
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+  font-family: Arial, "Helvetica Neue", Helvetica, sans-serif;
+}
+p{margin: 0}
+article{
+  background-color: #d3c9c93b
+}
+
+.gallery{
+  display: grid;
+  grid-gap: 1rem;
+  margin: 1rem;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-auto-rows:200px;
+}
+.gaps{
+  grid-auto-flow: dense;
+}
+.tall{
+  grid-row: span 2;
+}
+.wide{
+  grid-column: span 2;
+}
+img{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.25s ease-in-out;
+  opacity: 0;
+}
+
+.gallery-item{
+  position: relative;
+}
+.gallery-item p{
+  position: absolute;
+  top:50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: white;
+  padding: .5rem .75rem;
+  background-color: rgba(0, 0, 0, 0.77);
+  border-radius: 4px;
+  opacity: 0;
+  transition: all 0.25s ease-in-out;
+  z-index: 3;
+}
+article:focus{
+  border:4px solid red;
+}
+article:focus img, article:hover img{
+  transform: scale(0.9);
+}
+article:focus p, article:hover p{
+ opacity: 1;
+}
+article:focus .background, article:hover .background{
+  opacity: 1;
+ }
+.fixed{
+  position: fixed;
+  border: 2px solid black;
+  padding: .5rem;
+  top:0;
+  border-radius: 4px;
+  z-index: 2;
+  background-color: white;
+  z-index: 4;
+}
+.background{
+  width: 100%;
+    height: 100%;
+    background-color: #00000080;
+    z-index: 2;
+    opacity: 0;
+    position: absolute;
+    transition: all 0.25s ease-in-out
+}
+
+
+@media (max-width:24em){
+  .gallery{
+    grid-template-columns: 1fr;
+  }
+  .wide{
+    grid-column: auto;
+  }
+  .tall{
+    grid-row:auto;
+  }
+}
+
+.fadeIn{
+  animation-name: fadeInImg;
+  animation-duration: .5s;
+  animation-fill-mode: forwards;
+  transform: scale(0.8);
+}
+@keyframes fadeInImg {
+  0%   {opacity:0;transform: scale(1);}
+  30%   {opacity:0;transform: scale(0.95);}
+  80%  {transform: scale(1.05);}
+  100% {opacity:1;transform: scale(1);}
+}
+.signal { /*Loader*/
+  border: 5px solid #333;
+  border-radius: 30px;
+  height: 30px;
+  left: 50%;
+  margin: -15px 0 0 -15px;
+  opacity: 0;
+  position: absolute;
+  top: 50%;
+  width: 30px;
+
+  animation: pulsate 1s ease-out;
+  animation-iteration-count: infinite;
+}
+
+@keyframes pulsate {
+  0% {
+    transform: scale(.1);
+    opacity: 0.0;
+  }
+  50% {
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.2);
+    opacity: 0;
+  }
+}

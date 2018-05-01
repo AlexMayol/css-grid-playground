@@ -7,7 +7,10 @@ body {
   height: 100%;
   margin: 0;
   padding: 0;
-  overflow:hidden;
+}
+h2{
+  color: white;
+  margin: 0;
 }
 main {
   width: 100%;
@@ -28,6 +31,9 @@ main {
       "c c a a"
       "d f e e"
       "d f e e";
+  }
+  h2{
+    opacity: 0;
   }
 }
 
@@ -64,7 +70,34 @@ main {
 }
 section {
   background-color: red;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center
 }
+section div{
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  align-items: center
+}
+
+.test{
+  background-color: rebeccapurple;
+ opacity: 0.3;
+}
+
+
+
+
+
+
+
+
+
+
 img {
   width: 100%;
   height: 100%;
