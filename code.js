@@ -32,7 +32,7 @@ if (document.getElementById("gallery")) {
               classes: this.randomClasses(),
               showImg:false
             };
-            this.images.push(obj);
+            this.images.unshift(obj);
           }                    
         }
       },

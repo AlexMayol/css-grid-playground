@@ -1,0 +1,184 @@
+*{
+
+}
+html {
+  height: 100%;
+  width: 100%;
+  background-color: white;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+.blur{
+  height: 100%; 
+}
+.page-wrapper {
+  height: 100%;
+  background-image: url("https://images.pexels.com/photos/970107/pexels-photo-970107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
+  background-position: center;
+  background-size: cover;
+}
+
+.main-wrapper {
+  padding: 5% 0 5% 5%;
+}
+
+header {
+  background-color: sienna;
+  display: flex;
+
+}
+
+.recipe-heading {
+  grid-area: recipe;
+  background-color: teal;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.recipe-heading p{
+  display: grid;
+  grid-auto-columns: 1fr auto 1fr;
+  grid-gap: 5px;  
+  writing-mode: tb-rl;
+  transform: rotate(-180deg);
+}
+.recipe-heading p::before, .recipe-heading p::after{
+  content:"";
+  align-self: center;
+  border-top: 1px solid red;
+}
+
+.main-content {
+  grid-area: main;
+  padding: 1rem;
+  background-color: violet;
+}
+
+.page {
+  grid-area: page;
+  background-color: salmon;
+}
+.social{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.social ul{
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+.social li{
+  margin: 1rem;
+}
+.social {
+  grid-area: social;
+  background-color: rebeccapurple;
+}
+.social span{
+  border: 1px solid white;
+  display: flex;
+  width: 1rem;
+  height: 1rem;
+  padding: .5rem;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+}
+.social svg{
+  width: 1rem;
+  height: 1rem;
+  fill:white
+}
+
+.suggested {
+  grid-area: suggested;
+  background-color: aquamarine;
+
+  display: flex;
+  flex-wrap: wrap;
+}
+
+main {
+  display: grid;
+  grid-template-rows: auto auto;
+  grid-template-columns: 1fr 55% 25% 10%;
+  grid-template-areas: "recipe main page  social" "recipe suggested suggested suggested";
+}
+
+@media (max-width: 35rem) {
+  main {
+    grid-template-rows: auto auto auto auto auto;
+    grid-template-columns: 100%;
+    grid-template-areas: "recipe" "main" "page" "social" "suggested"
+  }
+  .main-wrapper {
+    padding: 0;
+  }
+  .card{
+    max-width: 100%;
+  }
+}
+
+@media (min-width:35rem) and (max-width: 50rem) {
+  main {
+    grid-template-rows: auto auto auto auto;
+    grid-template-columns: 1fr 90%;
+    grid-template-areas: "recipe main" "recipe page" "recipe social" "recipe suggested";
+  }
+}
+
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.call-to-action{
+  border-radius: 3px;
+  border:none;
+  color:white;
+  background-color: #4692DF;
+  text-decoration: none;
+  padding: 1rem 1.5rem;
+  margin: 1rem 0;
+}
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
+}
+p{
+  margin: 0;
+}
+.card{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: .5rem;
+  flex: 1 0 auto;
+}
+.card svg{
+  width: 1rem;
+  height: 1rem;
+}
+.thumbnail{
+  width: 120px;
+  height: 120px;
+}
+.thumbnail img{
+  border-radius: 50%;
+}
