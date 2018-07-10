@@ -1,0 +1,251 @@
+html{
+    height: 100%;
+    width: 100%;    
+    background-color: white;
+    font-family: 'Montserrat', sans-serif;
+}
+p{
+    margin: 0;
+    padding: 1rem;
+}
+header{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+.menu ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+    display: flex;
+}
+.menu ul li{
+    text-transform: uppercase;
+    color: black;
+    padding: .5rem 1rem;
+}
+
+.menu ul a{
+    color: black;
+    text-decoration:none;
+}
+.menu ul a:hover, .menu ul a:focus{
+    color:#91E8E6;
+}
+h1{
+    color: #FF5555;
+}
+h2{
+    font-size: 3rem;
+    margin: 0;
+    padding: 1rem;
+}
+body{
+    margin: 0;
+    color: white;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(4, auto);
+    grid-template-areas: 
+    "header header header header"
+    "s1 s3 s4 s4"
+    "s2 s3 s5 s6"
+    "footer footer footer s7";
+
+    min-height: 100%;
+}
+
+header{
+    grid-area:header;
+}
+footer{
+    grid-area: footer;
+    background-color: #404040;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+main{
+    display: contents;
+}
+.panel1{
+    background-color:white;
+    background-image: url("https://images.pexels.com/photos/1143552/pexels-photo-1143552.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    background-size: cover;
+    grid-area: s1;
+}
+.panel2{
+    grid-area: s2;
+    background-color: #CDEC6D;
+}
+.panel3{
+    grid-area: s3;
+    background-color: #FF5555;
+
+}
+.panel4{
+    grid-area: s4;
+    background-color: #FFC954;
+}
+.panel5{
+    grid-area: s5;
+    background-image: url("https://images.pexels.com/photos/65174/pexels-photo-65174.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    background-size: cover;
+    background-position: center;
+}
+.panel6{
+    grid-area: s6;
+    background-image: url("http://www.expertrain.com/SiteAssets/Images/Oranges%20or%20orange%20juice%20-%20which%20is%20the%20healthier%20option/bigstock-many-fresh-oranges-on-wooden-b-76291172.jpg");
+    background-size: cover;
+}
+.panel7{
+    grid-area: s7;
+    background-color: #12D1C9;
+}
+.call-to-action{
+    border:2px solid white;
+    background: transparent;
+    text-decoration: none;
+    color:white;
+    transition: all .3s ease;
+    padding: 1rem 2rem;
+    margin: 1rem;
+}
+.more{
+    border:2px solid white;
+    border-radius: 25px;
+    color:white;
+    background-color: transparent;
+    padding: .75rem 1.5rem;
+    text-decoration: none;
+    text-align: center;
+    width: fit-content;
+
+    transition: all .3s ease;
+}
+.call-to-action:hover, .call-to-action:focus, .more:hover, .more:focus{
+    /*background: linear-gradient(-45deg, #EE7752, #E73C7E, #23A6D5, #23D5AB);*/
+    background:#0FC5BE;
+}
+.social{
+    padding: 1rem;
+}
+.social a, .social svg{
+    text-decoration: none;
+    color:white;
+
+    transition: all .3s ease;
+}
+.social a:focus svg, .social a:hover svg{
+    transform: translateY(-5px);
+    color:#FEC856;
+    
+} 
+.social svg{
+    fill:white;
+    width: 1.5rem;
+    height: 1.5rem;
+}
+
+.logo-footer{
+    max-width: 200px;
+}
+.logo-footer img{
+    width: 100%;
+}
+.menu li{
+    transition: all .3s ease;
+}
+.menu li:hover::after, .menu li:focus::after{
+    content:"";
+    padding: 1rem 2rem;
+    position: absolute;
+    background-color: #0FC5BE;
+}
+.active{
+    position: relative;
+}
+.active::after{
+    content:"";
+    padding: 1rem 2rem;
+    position: absolute;
+    background-color: #0FC5BE;
+}
+
+
+
+/*--Helpers--*/
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0,0,0,0);
+    border: 0;
+  }
+
+.flex{
+    display: flex;
+}
+.flex-column{
+    flex-direction: column;
+}
+.flex-row{
+    flex-direction: row;
+}
+.flex-center{
+    justify-content: center;
+    align-items: center;
+}
+.order0{
+    order: 0;
+}
+.order1{
+    order: 1;
+}
+
+
+@media (min-width:60rem) and (max-width:75rem){
+    body{
+        grid-template-areas: 
+        "header header header header"
+        "s1 s4 s4 s5"
+        "s6 s3 s2 s2"
+        "footer footer s7 s7"
+    }
+}
+
+@media (min-width:45rem) and (max-width:60rem){
+    body{
+        grid-template-rows: repeat(6, auto);
+        grid-template-areas: 
+        "header header header header"
+        "s1 s2 s2 s2"
+        "s3 s3 s6 s6"
+        "s3 s3 s6 s6"
+        "s5 s4 s7 s7"
+        "footer footer footer footer"
+    }
+}
+
+
+@media (max-width:45rem){
+    body{
+       display: inline-block;
+    }
+    .order1, .order0{
+        order: 0;
+    }
+    .flex-row{
+        flex-direction: column;
+    }
+header{
+    padding: 1rem;
+    display: inline-block;
+}
+.menu ul{
+    display: inline-block
+}
+}

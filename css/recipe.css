@@ -18,7 +18,7 @@ body {
   height: 100%; 
 }
 .page-wrapper {
-  height: 100%;
+  height: 100vh;
   background-image: url("https://images.pexels.com/photos/970107/pexels-photo-970107.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260");
   background-position: center;
   background-size: cover;
