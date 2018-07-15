@@ -1,0 +1,26 @@
+{
+  "name": "parcel-boilerplate",
+  "version": "1.0.0",
+  "description": "A ParcelJS boilerplate with image compression and Vue Single Files components.",
+  "main": "index.html",
+  "bin": {
+    "page": "./cli"
+  },
+  "scripts": {
+    "page": "parcel $page --open",
+    "build": "parcel build $page --public-url ./ --no-source-maps --experimental-scope-hoisting"
+  },
+  "keywords": [
+    "parcel",
+    "boilerplate",
+    "images-optimization"
+  ],
+  "author": "Alex Mayol",
+  "license": "ISC",
+  "dependencies": {
+    "autoprefixer": "^8.6.5",
+    "parcel-bundler": "^1.9.6",
+    "parcel-plugin-imagemin": "^1.1.2",
+    "postcss-modules": "^1.1.0"
+  }
+}

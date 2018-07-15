@@ -57,3 +57,12 @@ if (document.getElementById("gallery")) {
     }
   });
 }
+
+if (document.getElementById("mosaic")){
+  new Vue({
+    el:'#mosaic',
+    data:{
+      msg:"ojdopj"
+    }
+  })
+}
