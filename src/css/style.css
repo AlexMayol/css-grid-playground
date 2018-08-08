@@ -27,7 +27,9 @@ main {
   display: grid;
   grid-template-rows: repeat(3, calc(100% / 3));
   grid-template-columns: repeat(4, 1fr);
-  grid-template-areas: "a a f b" "a a f c" "d e f c";
+  grid-template-areas: 
+  "a a f b" 
+  "a a f c" "d e f c";
 }
 
 @media (max-width: 30rem) {
