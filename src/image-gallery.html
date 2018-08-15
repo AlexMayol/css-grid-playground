@@ -3,21 +3,15 @@
 
 <head>
   <meta charset="utf-8">
-  <meta http-equiv="x-ua-compatible"
-        content="ie=edge">
-  <meta name="viewport"
-        content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description"
-        content="Grid is just awesome">
-  <meta name="subject"
-        content="just a simple exercise for fun">
-  <link href="https://fonts.googleapis.com/css?family=Roboto"
-        rel="stylesheet">
-  <link href="css/gallery.css"
-        rel="stylesheet"
-        type="text/css">
-        <script src="https://cdn.jsdelivr.net/npm/vue"></script>
-  <noscript><!--no JS alternative--></noscript>
+  <meta http-equiv="x-ua-compatible" content="ie=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="Grid is just awesome">
+  <meta name="subject" content="just a simple exercise for fun">
+  <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
+  <link href="css/gallery.css" rel="stylesheet" type="text/css">
+  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <noscript>
+    <!--no JS alternative--></noscript>
   <title>Grid at midnight</title>
 </head>
 
@@ -29,8 +23,11 @@
     </div>
     <section class="gallery" :class="{gaps:gaps}">
 
-      <article tabindex="0" class="gallery-item" v-for="img in images" :class="img.classes" >
-        <div class="loader" v-if="img.showImg == false"><div class="signal"></div></div> <!--Loader-->
+      <article tabindex="0" class="gallery-item" v-for="img in images" :class="img.classes">
+        <div class="loader" v-if="img.showImg == false">
+          <div class="signal"></div>
+        </div>
+        <!--Loader-->
         <div class="background"></div>
         <img :src="img.src" :alt="img.alt" @load="imgLoad(img)" :class="{'fadeIn':img.showImg==true}">
         <p v-if="img.showImg==true">{{img.desc}}</p>
