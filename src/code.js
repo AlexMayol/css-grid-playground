@@ -4,7 +4,9 @@ if (document.getElementById("gallery")) {
     data: {
       number: 6,
       images: [],
-      gaps:true 
+      type: 'any',
+      filter: 'none',
+      gaps: true
     },
     mounted() {
       this.modifyImages();
@@ -14,29 +16,41 @@ if (document.getElementById("gallery")) {
         this.modifyImages();
       }
     },
+    computed: {
+      addFilter: function() {
+        if (this.filter == 'none')
+          return ''
+        return `/${this.filter}`
+      }
+    },
     methods: {
-      modifyImages(){
-        if(this.number < this.images.length){
+      modifyImages() {
+        if (this.number < this.images.length) {
           let dif = Math.abs(this.number - this.images.length);
-          for(let x = 0; x < dif; x++){
+          for (let x = 0; x < dif; x++) {
             this.images.shift();
-          }          
-        }else{
+          }
+        } else if (this.number > this.images.length) {
           let dif = Math.abs(this.number - this.images.length);
           let obj;
-          for(let x = 0; x < dif; x++){
-             obj = {
-              src: ` https://placeimg.com/${this.random(250,300)}/${this.random(250, 300)}/animals`,
+          for (let x = 0; x < dif; x++) {
+            obj = {
+              src: ` https://placeimg.com/${this.random(250,300)}/${this.random(250, 300)}/${this.type}${this.addFilter}`,
               alt: `Alt attribute for this image`,
               desc: `Description for this image`,
               classes: this.randomClasses(),
-              showImg:false
+              showImg: false
             };
             this.images.push(obj);
-          }                    
+          }
         }
       },
-        imgLoad(el) {
+      updateType() {
+        for (let img of this.images) {
+          img.src = ` https://placeimg.com/${this.random(250,300)}/${this.random(250, 300)}/${this.type}${this.addFilter}`;
+        }
+      },
+      imgLoad(el) {
         el.showImg = true;
       },
       random(min, max) {
@@ -44,24 +58,22 @@ if (document.getElementById("gallery")) {
       },
       randomClasses() {
         let a = crypto.getRandomValues(new Uint8Array(3));
-
-        //let [wide, tall, large] = obj;
         let obj;
         if (a[0] <= 127 && a[1] <= 127 && a[2] > 127) {
-          obj = { wide: false, tall: false, large: true };
+          obj = {
+            wide: false,
+            tall: false,
+            large: true
+          };
         } else {
-          obj = { wide: a[0] > 127, tall: a[1] > 127, large: false };
+          obj = {
+            wide: a[0] > 127,
+            tall: a[1] > 127,
+            large: false
+          };
         }
         return obj;
       }
     }
   });
-}
-
-if (document.getElementById("mosaic")){
-  new Vue({
-    el:'#mosaic',
-    data:{
-    }
-  })
 }

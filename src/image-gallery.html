@@ -9,7 +9,7 @@
   <meta name="subject" content="just a simple exercise for fun">
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="css/gallery.css" rel="stylesheet" type="text/css">
-  <script src="https://cdn.jsdelivr.net/npm/vue"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
   <noscript>
     <!--no JS alternative--></noscript>
   <title>Grid at midnight</title>
@@ -20,6 +20,23 @@
     <div class="fixed">
       <label>Number of images: <input type="number" v-model.number="number"></label>
       <label><input placeholder="Type a number" type="checkbox" v-model="gaps">Fill gaps</label>
+      <label for="">Type
+        <select @change="updateType" v-model="type">
+          <option value="any">Any</option>
+          <option value="animals">Animals</option>
+          <option value="arch">Architecture</option>
+          <option value="nature">Nature</option>
+          <option value="people">People</option>
+          <option value="tech">Tech</option>
+        </select>
+      </label>
+      <label for="">Filters
+        <select @change="updateType" v-model="filter">
+          <option value="none">None</option>
+          <option value="grayscale">Grayscale</option>
+          <option value="sepia">Sepia</option>
+        </select>
+      </label>
     </div>
     <section class="gallery" :class="{gaps:gaps}">
 
