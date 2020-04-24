@@ -70,7 +70,7 @@ main{
 }
 .panel1{
     background-color:white;
-    background-image: url("https://images.pexels.com/photos/1143552/pexels-photo-1143552.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260");
+    background-image: url("https://images.pexels.com/photos/327098/pexels-photo-327098.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=650&w=940");
     background-size: cover;
     grid-area: s1;
 }
