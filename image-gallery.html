@@ -10,6 +10,8 @@
   <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet">
   <link href="src/css/gallery.css" rel="stylesheet" type="text/css">
   <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+  <link href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css" rel="stylesheet">
+
   <noscript>
     <!--no JS alternative--></noscript>
   <title>Grid at midnight</title>
@@ -17,7 +19,7 @@
 
 <body>
   <main id="gallery">
-    <div class="fixed">
+    <div class="fixed m-1">
       <label>Number of images: <input type="number" v-model.number="number"></label>
       <label><input placeholder="Type a number" type="checkbox" v-model="gaps">Fill gaps</label>
       <label for="">Type
@@ -38,16 +40,20 @@
         </select>
       </label>
     </div>
-    <section class="gallery" :class="{gaps:gaps}">
+    <section class="sm:grid gap-4 sm:grid-cols-6 lg:grid-cols-8 m-2 sm:m-4 space-y-4 sm:space-y-0" :class="{gaps:gaps}">
 
-      <article tabindex="0" class="gallery-item" v-for="img in images" :class="img.classes">
+      <article tabindex="0" class="gallery-item rounded shadow-sm overflow-hidden hover:shadow" v-for="img in images" :class="img.classes">
+        <!--Loader-->
         <div class="loader" v-if="img.showImg == false">
           <div class="signal"></div>
         </div>
-        <!--Loader-->
+
+        
         <div class="background"></div>
-        <img :src="img.src" :alt="img.alt" @load="imgLoad(img)" :class="{'fadeIn':img.showImg==true}">
-        <p v-if="img.showImg==true">{{img.desc}}</p>
+        <img :src="img.src" :alt="img.alt" @load="imgLoad(img)" class="w-full h-full object-cover" :class="{'fadeIn':img.showImg==true}">
+        <p v-if="img.showImg==true" class="text-center">
+          {{img.desc}}
+        </p>
       </article>
 
     </section>

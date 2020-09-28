@@ -12,12 +12,12 @@ if (document.getElementById("gallery")) {
       this.modifyImages();
     },
     watch: {
-      number: function() {
+      number: function () {
         this.modifyImages();
       }
     },
     computed: {
-      addFilter: function() {
+      addFilter: function () {
         if (this.filter == 'none')
           return ''
         return `/${this.filter}`
@@ -35,7 +35,7 @@ if (document.getElementById("gallery")) {
           let obj;
           for (let x = 0; x < dif; x++) {
             obj = {
-              src: ` https://placeimg.com/${this.random(250,300)}/${this.random(250, 300)}/${this.type}${this.addFilter}`,
+              src: `https://placeimg.com/${this.random(250, 300)}/${this.random(250, 300)}/${this.type}${this.addFilter}`,
               alt: `Alt attribute for this image`,
               desc: `Description for this image`,
               classes: this.randomClasses(),
@@ -47,7 +47,7 @@ if (document.getElementById("gallery")) {
       },
       updateType() {
         for (let img of this.images) {
-          img.src = ` https://placeimg.com/${this.random(250,300)}/${this.random(250, 300)}/${this.type}${this.addFilter}`;
+          img.src = ` https://placeimg.com/${this.random(250, 300)}/${this.random(250, 300)}/${this.type}${this.addFilter}`;
         }
       },
       imgLoad(el) {
@@ -78,7 +78,7 @@ if (document.getElementById("gallery")) {
   });
 }
 
-if(document.getElementById('mosaic'))
-new Vue({
-  el:'#mosaic'
-})
+if (document.getElementById('mosaic'))
+  new Vue({
+    el: '#mosaic'
+  })
