@@ -18,9 +18,9 @@
   "author": "Alex Mayol",
   "license": "ISC",
   "dependencies": {
-    "autoprefixer": "^8.6.5",
-    "parcel-bundler": "^1.9.6",
+    "autoprefixer": "^10.4.13",
+    "parcel-bundler": "^1.12.5",
     "parcel-plugin-imagemin": "^1.1.2",
-    "postcss-modules": "^1.5.0"
+    "postcss-modules": "^6.0.0"
   }
 }
